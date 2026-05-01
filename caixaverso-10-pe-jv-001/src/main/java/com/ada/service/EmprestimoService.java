@@ -14,20 +14,31 @@ import java.util.UUID;
 public class EmprestimoService {
 
     @Inject
-    EmprestimoRepository emprestimoRepository;
+    EmprestimoRepository repository;
 
-    public List<EmprestimoResponse> consultaById(String clientId){
-
-        UUID clientUUID = UUID.fromString(clientId);
-
-        return emprestimoRepository
-                .find("clienteId", clientUUID)
+    // READ
+    public List<EmprestimoResponse> consultaById(UUID clientId) {
+        return repository.find("clienteId", clientId)
                 .stream()
                 .map(this::emprestimoToResponse)
                 .toList();
     }
 
+    // CREATE
+    public EmprestimoResponse incluiEmprestimo(EmprestimoRequest request) {
+        EmprestimoEntity entity = new EmprestimoEntity();
+        // map request → entity (idealmente via mapper) //TODO
+        repository.persist(entity);
 
+        return emprestimoToResponse(entity);
+    }
+
+    // DELETE
+    public void deletaEmprestimo(UUID clientId) {
+        repository.delete("clienteId", clientId);
+    }
+
+    // MAPPERS (privado)
     private EmprestimoResponse emprestimoToResponse(EmprestimoEntity e) {
         return new EmprestimoResponse(
                 e.id,
@@ -56,19 +67,5 @@ public class EmprestimoService {
                 p.saldoDevedor
         );
     }
-
-public EmprestimoResponse incluiEmprestimo(EmprestimoRequest emprestimoRequest){
-
-    return emprestimoRepository.add(emprestimoRequest);
-}
-
-public void deletaEmprestimo(String clientId){
-
-    UUID clientUUID = UUID.fromString(clientId);
-
-    return emprestimoRepository.delete(clientUUID);
-}
-
-
 }
 
