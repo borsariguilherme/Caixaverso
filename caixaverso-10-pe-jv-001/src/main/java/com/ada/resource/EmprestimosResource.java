@@ -1,4 +1,4 @@
-package com.ada.resources;
+package com.ada.resource;
 
 import com.ada.dto.EmprestimoRequest;
 import com.ada.dto.EmprestimoResponse;
@@ -20,9 +20,9 @@ public class EmprestimosResource {
     EmprestimoService emprestimoService;
 
     @GET
-    public EmprestimoResponse consultaEmprestimo(@QueryParam("clientId") String clientId){
+    public Response consultaEmprestimo(@QueryParam("clientId") String clientId){
 
-        Optional <List<EmprestimoResponse>> listaEmprestimo = emprestimoService.consultaById(clientId);
+        List<EmprestimoResponse> listaEmprestimo = emprestimoService.consultaById(clientId);
 
 
         return Response.ok().entity(listaEmprestimo).build();};

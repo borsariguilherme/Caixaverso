@@ -1,13 +1,17 @@
 package com.ada.dto;
 
+import com.ada.model.TipoAmortizacao;
+
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
+import java.util.UUID;
 
 public record EmprestimoRequest(
 
-        String clienteId,
-        BigInteger valorTotal,
+        UUID clienteId,
+        BigDecimal valorTotal,
         int quantidadeParcelas,
-        String tipoAmortizacao //TODO enum
+        TipoAmortizacao tipoAmortizacao
 
 ) {}

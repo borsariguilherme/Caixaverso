@@ -1,6 +1,6 @@
 package com.ada.repository;
 
-import com.ada.entity.EmprestimoEntity;
+import com.ada.model.EmprestimoEntity;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 
