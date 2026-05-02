@@ -1,4 +1,6 @@
-package com.ada.model;
+package com.ada.model.entity;
+import com.ada.model.enums.StatusEmprestimo;
+import com.ada.model.enums.TipoAmortizacao;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.DecimalMin;

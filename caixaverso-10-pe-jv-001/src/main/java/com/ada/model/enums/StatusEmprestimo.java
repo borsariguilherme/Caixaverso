@@ -1,4 +1,4 @@
-package com.ada.model;
+package com.ada.model.enums;
 
 public enum StatusEmprestimo {
     PENDENTE,

@@ -1,6 +1,6 @@
 package com.ada.dto;
 
-import com.ada.model.StatusParcela;
+import com.ada.model.enums.StatusParcela;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

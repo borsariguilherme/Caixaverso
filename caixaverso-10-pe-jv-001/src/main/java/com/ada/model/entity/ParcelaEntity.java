@@ -1,17 +1,15 @@
-package com.ada.model;
+package com.ada.model.entity;
 
+import com.ada.model.enums.StatusParcela;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
-import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Entity
 @Table(name = "parcela")

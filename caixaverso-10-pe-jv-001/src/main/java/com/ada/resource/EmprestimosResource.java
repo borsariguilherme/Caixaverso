@@ -30,17 +30,17 @@ public class EmprestimosResource {
         return Response.ok().entity(listaEmprestimo).build();};
 
     @POST
-    public EmprestimoResponse incluiEmprestimo(EmprestimoRequest emprestimo){
+    public Response incluiEmprestimo(EmprestimoRequest novoEmprestimo){
 
-        //service incluir
+        EmprestimoResponse emprestimoCalculado = emprestimoService.incluiEmprestimo(novoEmprestimo);
 
-        return Response.ok().entity(novoEmprestimo);};
+        return Response.ok().entity(emprestimoCalculado).build();};
 
     @DELETE
     @Path("/{id}")
-    public Response deletaEmprestimo(@PathParam("id") String id){
+    public Response deletaEmprestimo(@PathParam("id") UUID id){
 
-        //service deletar
+        emprestimoService.deletaEmprestimo(id);
 
         return Response.status(204).build();};
 

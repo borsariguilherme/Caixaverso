@@ -1,7 +1,7 @@
 package com.ada.dto;
 
-import com.ada.model.StatusEmprestimo;
-import com.ada.model.TipoAmortizacao;
+import com.ada.model.enums.StatusEmprestimo;
+import com.ada.model.enums.TipoAmortizacao;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import java.math.BigDecimal;
